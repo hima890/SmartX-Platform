@@ -1,0 +1,56 @@
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__
+env/
+venv/
+smartx_env/
+*.sqlite3
+db.sqlite3
+
+# Django
+*.log
+*.pot
+*.pyc
+*.pyo
+*.db
+*.sqlite3
+*.log
+*.bak
+*.swp
+*.swo
+*.idea/
+*.vscode/
+.DS_Store
+*.env
+
+# NPM
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+dist/
+build/
+
+# Docker
+*.dockerfile
+docker-compose.override.yml
+
+# Virtual Environment
+*.env/
+*.venv/
+*.virtualenv/
+
+# OS specific
+Thumbs.db
+ehthumbs.db
+.idea/
+.vscode/
+
+# Nginx & Web Server Configs
+*.conf
+nginx/*
+docker/*
+
