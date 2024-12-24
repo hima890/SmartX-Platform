@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./app:/usr/src/app
+    depends_on:
+      - db
+    command: python manage.py runserver 0.0.0.0:8000
+
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: majoja2580A@
+      MYSQL_DATABASE: django
+      MYSQL_USER: ibrahim
+      MYSQL_PASSWORD: Django@2024
+
