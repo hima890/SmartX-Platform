@@ -8,4 +8,4 @@ def landing_page(request):
     request: The request object used to generate this page.
     return: The rendered landing page.
     """
-    return render(request, 'landing.html')
+    return render(request, 'index.html')
