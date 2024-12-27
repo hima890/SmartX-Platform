@@ -9,4 +9,6 @@ urlpatterns = [
     path('signin/', views.signin_signup, name='signin_signup'),
     # About Us Page
     path('about/', views.about_us, name='about_us'),
+    # Contact Us Form
+    path('contact-us/', views.contact_us, name='contact_us'),
 ]
