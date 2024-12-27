@@ -19,3 +19,12 @@ def signin_signup(request):
     return: The rendered sign in / sign up page.
     """
     return render(request, 'forms.html')
+
+
+def about_us(request):
+    """
+    This view renders the about us page of the website.
+    request: The request object used to generate this page.
+    return: The rendered about us page.
+    """
+    return render(request, 'about.html')

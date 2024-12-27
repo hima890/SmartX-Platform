@@ -123,6 +123,7 @@ STATIC_URL = 'static/'
 # Additional directories where Django will search for static files
 STATICFILES_DIRS = [
     BASE_DIR / 'static',  # Assuming 'static' is in your project's root directory
+    BASE_DIR / 'aboutStatic', # Path for about us page static
 ]
 
 # Directory where static files will be collected during deployment

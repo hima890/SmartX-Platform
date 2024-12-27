@@ -7,4 +7,6 @@ urlpatterns = [
     path('', views.landing_page, name='landing_page'),
     # Sign In / Sign Up Page
     path('signin/', views.signin_signup, name='signin_signup'),
+    # About Us Page
+    path('about/', views.about_us, name='about_us'),
 ]
