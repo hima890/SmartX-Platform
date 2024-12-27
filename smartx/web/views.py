@@ -1,5 +1,6 @@
 """ This file contains the views for the landing page of the website. """
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .form import ContactFormForm
 
 
 # Create your views here.
@@ -28,3 +29,15 @@ def about_us(request):
     return: The rendered about us page.
     """
     return render(request, 'about.html')
+
+
+def contact_us(request):
+    if request.method == 'POST':
+        form = ContactFormForm(request.POST)
+        if form.is_valid():
+            form.save()  # Save the data to the database
+            print('Form saved')
+        else:
+            print('Form not saved')
+    else:
+        print('Bad request')
