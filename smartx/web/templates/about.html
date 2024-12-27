@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{% static 'aboutStatic/fonts/font-awesome.min.css' %}">
     <link rel="stylesheet" href="{% static 'aboutStatic/css/aos.min.css' %}">
     <link rel="stylesheet" href="{% static 'aboutStatic/css/Pretty-Footer-.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
 </head>
 
 <body>
@@ -32,13 +33,14 @@
         </div>
     </div>
     <div class="container">
-        <p data-aos="fade-up" data-aos-duration="150" data-aos-delay="100" style="text-align: justify;">Welcome to&nbsp;<strong><span style="color: rgb(30, 30, 30);">Smart</span><span style="color: rgb(0, 120, 215);">X</span></strong>, your trusted destination for everything you need to enhance your daily life and achieve your goals. Established with a passion for quality, innovation, and customer satisfaction, we are committed to providing you with exceptional services and products that cater to your needs. Our journey began with a simple idea: to create a platform that bridges the gap between innovation and accessibility, ensuring that everyone has access to cutting-edge solutions that make life simpler, more efficient, and enjoyable. Over the years, we have grown into a thriving community of like-minded individuals who share a common goal—bringing dreams to reality through hard work, dedication, and an unwavering commitment to excellence.At smartx.com, we believe in the power of collaboration and transparency. Every product and service we offer is meticulously designed, tested, and curated to meet the highest standards of quality. We are proud to work with a talented and diverse team of professionals who bring their unique skills, creativity, and expertise to the table. Together, we strive to stay ahead of the curve by embracing the latest technologies and trends while staying grounded in our core values of integrity, trust, and respect.Our mission is not just to deliver outstanding solutions but also to foster a sense of community and connection among our customers, partners, and team members. We believe that success is best achieved when we work together towards a common purpose, and we are dedicated to building meaningful relationships that last a lifetime. Whether you're here to explore new products, seek expert advice, or simply learn more about our journey, we want you to feel inspired, valued, and empowered every step of the way.Thank you for choosing smartx.com. We are excited to be a part of your story and look forward to serving you with the dedication and care you deserve. Let’s build a brighter, more connected future together!.</p>
+        <p data-aos="fade-up" data-aos-duration="150" data-aos-delay="100" style="text-align: justify;margin-top: 3em;">Welcome to&nbsp;<strong><span style="color: rgb(30, 30, 30);">Smart</span><span style="color: rgb(0, 120, 215);">X</span></strong>, your trusted destination for everything you need to enhance your daily life and achieve your goals. Established with a passion for quality, innovation, and customer satisfaction, we are committed to providing you with exceptional services and products that cater to your needs. Our journey began with a simple idea: to create a platform that bridges the gap between innovation and accessibility, ensuring that everyone has access to cutting-edge solutions that make life simpler, more efficient, and enjoyable. Over the years, we have grown into a thriving community of like-minded individuals who share a common goal—bringing dreams to reality through hard work, dedication, and an unwavering commitment to excellence.At smartx.com, we believe in the power of collaboration and transparency. Every product and service we offer is meticulously designed, tested, and curated to meet the highest standards of quality. We are proud to work with a talented and diverse team of professionals who bring their unique skills, creativity, and expertise to the table. Together, we strive to stay ahead of the curve by embracing the latest technologies and trends while staying grounded in our core values of integrity, trust, and respect.Our mission is not just to deliver outstanding solutions but also to foster a sense of community and connection among our customers, partners, and team members. We believe that success is best achieved when we work together towards a common purpose, and we are dedicated to building meaningful relationships that last a lifetime. Whether you're here to explore new products, seek expert advice, or simply learn more about our journey, we want you to feel inspired, valued, and empowered every step of the way.Thank you for choosing smartx.com. We are excited to be a part of your story and look forward to serving you with the dedication and care you deserve. Let’s build a brighter, more connected future together!.</p>
     </div><!-- Start: Pretty Footer -->
     <footer data-aos="fade-up" data-aos-duration="100" data-aos-delay="150" style="background: #0f4a6a;">
         <div class="row">
             <div class="col-sm-6 col-md-4 footer-navigation">
                 <h3><a href="{% url 'landing_page' %}"><strong><span style="color: rgb(255, 255, 255);">SmartX</span></strong></a></h3>
-                <p class="links"><a href="{% url 'landing_page' %}">Home</a><strong> ·&nbsp;</strong><a href="{% url 'about_us' %}">About</a><strong> ·&nbsp;</strong><a href="#">Contact</a></p>
+                <p class="links"><a href="{% url 'landing_page' %}">Home</a><strong> ·&nbsp;</strong><a href="{% url 'about_us' %}">About</a><strong> ·&nbsp;</strong>                    <a id="contactUsButton"  type="button">Contact Us</a>
+                </p>
                 <p class="company-name">SmartX © 2025</p>
             </div>
             <div class="col-sm-6 col-md-4 footer-contacts">
@@ -58,10 +60,40 @@
                 <div class="social-links social-icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a><a href="#"><i class="fa fa-github"></i></a></div>
             </div>
         </div>
-    </footer><!-- End: Pretty Footer -->
+    </footer>
+    <!-- End: Pretty Footer -->
+    <!-- Contact Us Form (Hidden by Default) -->
+    <section id="contact-us" class="contact-form-container">
+        <div class="contact-form-content">
+        <h2 class="text-center mb-4">Contact Us</h2>
+        <p class="text-center mb-5">We'd love to hear from you! Fill out the form below and we'll get back to you as soon as possible.</p>
+        <form>
+            <div class="form-group mb-3">
+            <label for="name">Your Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group mb-3">
+            <label for="email">Your Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group mb-3">
+            <label for="message">Your Message</label>
+            <textarea class="form-control" id="message" rows="5" placeholder="Write your message here..." required></textarea>
+            </div>
+            <div class="text-center">
+            <button type="submit" class="btn btn-primary">Send Message</button>
+            </div>
+        </form>
+        <button id="closeForm" class="btn btn-secondary mt-4">Close</button>
+        </div>
+    </section>
+    <!-- Background Overlay (Hidden by Default) -->
+    <div id="overlay" class="overlay"></div>
+
     <script src="{% static 'aboutStatic/bootstrap/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'aboutStatic/js/aos.min.js' %}"></script>
     <script src="{% static 'aboutStatic/js/bs-init.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
 </body>
 
 </html>

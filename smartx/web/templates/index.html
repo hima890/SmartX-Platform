@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="{% static 'css/Articles-Cards-images.css' %}">
     <link rel="stylesheet" href="{% static 'css/Navbar-Right-Links-icons.css' %}">
     <link rel="stylesheet" href="{% static 'css/Pretty-Footer-.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
 </head>
 
 <body>
@@ -121,8 +122,9 @@
         <div class="row">
             <div class="col-sm-6 col-md-4 footer-navigation">
                 <h3><a href="{% url 'landing_page' %}"><strong>SmartX</strong></a></h3>
-                <p class="links"><a href="{% url 'landing_page' %}">Home</a><strong> · </strong><a href="#"></a><a href="#"></a><strong>&nbsp;</strong><a href="{% url 'about_us' %}">About</a><strong> · </strong><a href="#"></a><strong>&nbsp;</strong><a href="#">Contact</a></p>
-                <p class="company-name">SmartX © 2025</p>
+                <p class="links"><a href="{% url 'landing_page' %}">Home</a><strong> · </strong><a href="#"></a><a href="#"></a><strong>&nbsp;</strong><a href="{% url 'about_us' %}">About</a><strong> · </strong>
+                    <a id="contactUsButton"  type="button">Contact Us</a>
+                    <p class="company-name">SmartX © 2025</p>
             </div>
             <div class="col-sm-6 col-md-4 footer-contacts">
                 <div><span class="fa fa-map-marker footer-contacts-icon"> </span>
@@ -142,9 +144,38 @@
             </div>
         </div>
     </footer>
+    <!-- Contact Us Form (Hidden by Default) -->
+    <section id="contact-us" class="contact-form-container">
+        <div class="contact-form-content">
+        <h2 class="text-center mb-4">Contact Us</h2>
+        <p class="text-center mb-5">We'd love to hear from you! Fill out the form below and we'll get back to you as soon as possible.</p>
+        <form>
+            <div class="form-group mb-3">
+            <label for="name">Your Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group mb-3">
+            <label for="email">Your Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group mb-3">
+            <label for="message">Your Message</label>
+            <textarea class="form-control" id="message" rows="5" placeholder="Write your message here..." required></textarea>
+            </div>
+            <div class="text-center">
+            <button type="submit" class="btn btn-primary">Send Message</button>
+            </div>
+        </form>
+        <button id="closeForm" class="btn btn-secondary mt-4">Close</button>
+        </div>
+    </section>
+    
+    <!-- Background Overlay (Hidden by Default) -->
+    <div id="overlay" class="overlay"></div>
     <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/aos.min.js' %}"></script>
     <script src="{% static 'js/bs-init.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
 </body>
 
 </html>
