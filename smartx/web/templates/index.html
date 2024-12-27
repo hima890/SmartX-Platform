@@ -28,12 +28,14 @@
 
 <body>
     <nav class="navbar navbar-expand-md bg-body py-3" style="border-bottom: 1px solid #a48c8c ;">
-        <div class="container"><a class="navbar-brand d-flex align-items-center" href="#"><span style="font-size: 30px;"><strong><span style="color: rgb(30, 30, 30);">Smart</span><span style="color: rgb(0, 120, 215);">X</span></strong></span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container"><a class="navbar-brand d-flex align-items-center" href="{% url 'landing_page' %}"><span style="font-size: 30px;"><strong><span style="color: rgb(30, 30, 30);">Smart</span><span style="color: rgb(0, 120, 215);">X</span></strong></span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-2">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="#"><span style="color: rgb(33, 37, 41);">Home</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="#"><span style="color: rgba(0, 0, 0, 0.8);">About</span></a></li>
-                </ul><a class="btn btn-primary ms-md-2" role="button" href="#" style="background: #dddddddd;border-color: #dddddddd;color: var(--bs-primary);">Login</a><button class="btn btn-primary" type="button" style="margin-left: 10px;">Sign up</button>
+                    <li class="nav-item"><a class="nav-link active" href="{% url 'landing_page' %}"><span style="color: rgb(33, 37, 41);">Home</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'about_us' %}"><span style="color: rgba(0, 0, 0, 0.8);">About</span></a></li>
+                </ul>
+                <a class="btn btn-primary ms-md-2" role="button" href="{% url 'signin_signup' %}" style="background: #dddddddd;border-color: #dddddddd;color: var(--bs-primary);">Login</a>
+                <a class="btn btn-primary" type="button" style="margin-left: 10px;" href="{% url 'signin_signup' %}">Sign up</a>
             </div>
         </div>
     </nav>
@@ -118,8 +120,8 @@
     <footer data-aos="fade-up" data-aos-duration="100" data-aos-delay="150" style="background: #0f4a6a;">
         <div class="row">
             <div class="col-sm-6 col-md-4 footer-navigation">
-                <h3><a href="#"><strong>SmartX</strong></a></h3>
-                <p class="links"><a href="#">Home</a><strong> · </strong><a href="#"></a><a href="#"></a><strong>&nbsp;</strong><a href="#">About</a><strong> · </strong><a href="#"></a><strong>&nbsp;</strong><a href="#">Contact</a></p>
+                <h3><a href="{% url 'landing_page' %}"><strong>SmartX</strong></a></h3>
+                <p class="links"><a href="{% url 'landing_page' %}">Home</a><strong> · </strong><a href="#"></a><a href="#"></a><strong>&nbsp;</strong><a href="{% url 'about_us' %}">About</a><strong> · </strong><a href="#"></a><strong>&nbsp;</strong><a href="#">Contact</a></p>
                 <p class="company-name">SmartX © 2025</p>
             </div>
             <div class="col-sm-6 col-md-4 footer-contacts">
