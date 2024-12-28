@@ -1,5 +1,5 @@
 """ This file contains the views for the landing page of the website. """
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from .form import ContactFormForm
 
 
@@ -36,8 +36,9 @@ def contact_us(request):
         form = ContactFormForm(request.POST)
         if form.is_valid():
             form.save()  # Save the data to the database
-            print('Form saved')
+            return HttpResponse("Form successfully saved!")
+            
         else:
-            print('Form not saved')
+            return HttpResponse("Form submission failed. Please check the inputs.", status=400)
     else:
-        print('Bad request')
+        HttpResponse("Invalid request method.", status=405)

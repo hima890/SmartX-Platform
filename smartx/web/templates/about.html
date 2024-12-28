@@ -67,7 +67,7 @@
         <div class="contact-form-content">
         <h2 class="text-center mb-4">Contact Us</h2>
         <p class="text-center mb-5">We'd love to hear from you! Fill out the form below and we'll get back to you as soon as possible.</p>
-        <form method="post" action="{% url 'contact_us' %}">
+        <form method="POST" action="{% url 'contact_us' %}">
             {% csrf_token %}
             <div class="form-group mb-3">
             <label for="name">Your Name</label>
