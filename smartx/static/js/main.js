@@ -66,4 +66,3 @@ document.getElementById('contactForm').addEventListener('submit', function (even
         flashMessageContainer.innerHTML = alertMessage;
     });
 });
-
