@@ -1,5 +1,6 @@
 """ Custom throttle class to limit the number of requests per user or IP address """
 from rest_framework.throttling import SimpleRateThrottle
+from rest_framework.exceptions import Throttled
 
 
 class ContactFormRateThrottle(SimpleRateThrottle):
@@ -27,7 +28,14 @@ class ContactFormRateThrottle(SimpleRateThrottle):
             Parses the rate limit string into a tuple of (num_requests, period).
     """
     scope = 'contact_form'
-    
+
     def get_cache_key(self, request, view):
         # Identify the user by their IP address
         return self.get_ident(request)
+
+    def wait(self):
+        # Send a custom error response when the rate limit is exceeded
+        raise Throttled(detail={
+            'status': 'error',
+            'message': 'Rate limit exceeded. You can only submit 5 messages per day. Please try again tomorrow.'
+        })
