@@ -2,6 +2,9 @@
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from django.shortcuts import render
+from rest_framework.decorators import api_view, throttle_classes
+from rest_framework.response import Response
+from .throttles import ContactFormRateThrottle
 from .form import ContactFormForm
 
 
@@ -32,7 +35,8 @@ def about_us(request):
     """
     return render(request, 'about.html')
 
-
+@api_view(['POST'])
+@throttle_classes([ContactFormRateThrottle])
 @csrf_exempt
 def contact_us(request):
     """
