@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 import environ
 from pathlib import Path
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -95,7 +94,7 @@ DATABASES = {
 # Rest Framework setup
 REST_FRAMEWORK = {
     'DEFAULT_THROTTLE_CLASSES': [
-        'path.to.throttles.ContactFormRateThrottle',
+        'web.throttles.ContactFormRateThrottle',
     ],
     'DEFAULT_THROTTLE_RATES': {
         'contact_form': '5/day',  # Allow 5 requests per day
@@ -108,7 +107,13 @@ CACHES = {
         'BACKEND': 'django_redis.cache.RedisCache',
         'LOCATION': 'redis://127.0.0.1:6379/1',  # Redis server location
         'OPTIONS': {
-            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient', # Radis form cash class
+            'PASSWORD': env('RD_PASSWORD'), # Redis password
+        },
+        # Connection Pooling
+        'CONNECTION_POOL_KWARGS': {
+            'max_connections': 100,
+            'retry_on_timeout': True,
         },
         'KEY_PREFIX': env('RD_PREFIX'),  # Optional: Prefix for cache keys
     }
