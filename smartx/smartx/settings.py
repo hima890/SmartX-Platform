@@ -92,6 +92,16 @@ DATABASES = {
     }
 }
 
+# Rest Framework setup
+REST_FRAMEWORK = {
+    'DEFAULT_THROTTLE_CLASSES': [
+        'path.to.throttles.ContactFormRateThrottle',
+    ],
+    'DEFAULT_THROTTLE_RATES': {
+        'contact_form': '5/day',  # Allow 5 requests per day
+    },
+}
+
 # Configure Redis in Django Settings
 CACHES = {
     'default': {
