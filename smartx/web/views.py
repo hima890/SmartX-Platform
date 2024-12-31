@@ -1,5 +1,7 @@
 """ This file contains the views for the landing page of the website. """
-from django.shortcuts import render, redirect, HttpResponse
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
+from django.shortcuts import render
 from .form import ContactFormForm
 
 
@@ -31,14 +33,36 @@ def about_us(request):
     return render(request, 'about.html')
 
 
+@csrf_exempt
 def contact_us(request):
+    """
+    This view handles the contact form submission.
+    
+    Keyword arguments:
+    request -- the request
+    Return: JsonResponse
+    """
     if request.method == 'POST':
         form = ContactFormForm(request.POST)
         if form.is_valid():
-            form.save()  # Save the data to the database
-            return HttpResponse("Form successfully saved!")
-            
+            form.save()
+            print("Form saved")
+            return JsonResponse(
+                {
+                    'status': 'success',
+                    'message': 'Thank you! Your message has been sent.'
+                }
+            )
         else:
-            return HttpResponse("Form submission failed. Please check the inputs.", status=400)
-    else:
-        HttpResponse("Invalid request method.", status=405)
+            return JsonResponse(
+                {
+                    'status': 'error',
+                    'message': 'Form validation failed. Please check your inputs.'
+                }
+            )
+    return JsonResponse(
+        {
+            'status': 'error',
+            'message': 'Invalid request method.'
+        }
+    )

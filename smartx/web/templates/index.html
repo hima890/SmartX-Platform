@@ -149,8 +149,10 @@
         <div class="contact-form-content">
         <h2 class="text-center mb-4">Contact Us</h2>
         <p class="text-center mb-5">We'd love to hear from you! Fill out the form below and we'll get back to you as soon as possible.</p>
-        <form method="POST" action="{% url 'contact_us' %}">
+        <form id="contactForm" autocomplete="on" method="post" action="/contact-us/">
+            <div id="flashMessageContainer" class="container mt-4"></div>
             {% csrf_token %}
+            <!-- Flash Message Container -->
             <div class="form-group mb-3">
             <label for="name">Your Name</label>
             <input name="name" type="text" class="form-control" id="name" placeholder="Enter your name" required>

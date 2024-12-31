@@ -16,4 +16,22 @@ closeButton.addEventListener('click', function() {
     overlay.style.display = 'none';      // Hide the overlay
 });
  
-
+$(function() {
+    $('#contactForm').on('submit', function(event) {
+      event.preventDefault();
+      $.ajax({
+        url: '{% url "contact-us" %}',
+        type: 'POST',
+        data: $(this).serialize(),
+        dataType: 'json',
+        success: function(response) {
+          if (response.success) {
+            $('#contact-form').hide();
+            $('#alert').html('<div class="alert alert-success">Thank you for your message!</div>').show();
+          } else {
+            $('#alert').html('<div class="alert alert-danger">' + response.errors + '</div>').show();
+          }
+        }
+      });
+    });
+  });
